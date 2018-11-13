@@ -2,6 +2,9 @@
  
 int main()
 {
-    printf("hello,world\n");
+    //获取内存地址
+    int i =0;
+    i= (int)main;
+    printf("%d\n",i);
     return 0;
 }
