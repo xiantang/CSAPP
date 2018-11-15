@@ -41,5 +41,12 @@ int main(int argc, char const *argv[])
     // void * b = show_float;
     // show_pointer(b);
     // return 0;
-    test_show_bytes(12345);
+    // test_show_bytes(12345);
+    int val = 0x87654321;
+    byte_pointer valp = (byte_pointer)&val; // & 是取地址 创建一个指针
+    show_bytes(valp,1);
+    show_bytes(valp,2);
+    show_bytes(valp,3);
+    const char *s = "abcdef";
+    show_bytes((byte_pointer)s,6);
 }
