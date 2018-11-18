@@ -9,7 +9,7 @@ int main(int argc, char const *argv[])
     // 取出值
     printf("%d\n",*ip);
     // 找到ip 存储的var的地址
-   printf("%p\n", ip );
+    printf("%p\n", ip );
     /* code */
     return 0;
 }
