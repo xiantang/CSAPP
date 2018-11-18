@@ -1,6 +1,6 @@
-#include "struct.h"
-#include <stdio.h>
 
+#include <stdio.h>
+typedef unsigned char * byte_pointer;
 // 将数据类型定义为指向'unsigned char'的指针
 void show_bytes(byte_pointer start,size_t len){
     size_t i ;
@@ -77,5 +77,9 @@ int main(int argc, char const *argv[])
     // printf("v=%d,uv=%u\n",v,uv);
     
     /* code */
+    int x= -1;
+    int u = -2147483647;
+    printf("x = %u = %d\n",x,x);
+    printf("u = %u = %d\n",u,u);
     return 0;
 }

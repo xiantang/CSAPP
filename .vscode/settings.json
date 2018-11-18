@@ -2,6 +2,8 @@
     "files.associations": {
         "stdio.h": "c",
         "struct.h": "c",
-        "__config": "cpp"
+        "__config": "cpp",
+        "limits.h": "c",
+        "cdefs.h": "c"
     }
 }
