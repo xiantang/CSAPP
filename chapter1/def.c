@@ -34,6 +34,19 @@ void test_show_bytes(int val){
 int compare(int x,int y){
     return !(x^y);
 }
+float sum_elements(float a[],unsigned length){
+    int i;
+    float result = 0;
+    printf("%d\n",111);
+    for(i=0;i<=length-1;i++ ){
+        result += a[i];
+        
+    }
+    printf("%f\n",result);
+    return result;
+
+
+}
 int main(int argc, char const *argv[])
 {
     /* code */
@@ -83,16 +96,20 @@ int main(int argc, char const *argv[])
     // printf("u = %u = %d\n",u,u);
     // return 0;
 
-    short sx = -12345;
-    unsigned short usx = sx;
-    int x =sx;
-    unsigned ux = usx;
-    printf("sx = %d:\t",sx);
-    show_bytes((byte_pointer)&sx,sizeof(short));
-    printf("usx = %u:\t",usx);
-    show_bytes((byte_pointer)&usx,sizeof(unsigned short));
-    printf("x = %d:\t",x);
-    show_bytes((byte_pointer)&x,sizeof(int));
-    printf("ux = %u:\t",ux);
-    show_bytes((byte_pointer)&ux,sizeof(unsigned));
+    // short sx = -12345;
+    // unsigned short usx = sx;
+    // int x =sx;
+    // unsigned ux = usx;
+    // printf("sx = %d:\t",sx);
+    // show_bytes((byte_pointer)&sx,sizeof(short));
+    // printf("usx = %u:\t",usx);
+    // show_bytes((byte_pointer)&usx,sizeof(unsigned short));
+    // printf("x = %d:\t",x);
+    // show_bytes((byte_pointer)&x,sizeof(int));
+    // printf("ux = %u:\t",ux);
+    // show_bytes((byte_pointer)&ux,sizeof(unsigned));
+    printf("%d\n",111); 
+    float a[] ={};
+    float v = sum_elements(a,0);
+    printf("%f\n",v);
 }
