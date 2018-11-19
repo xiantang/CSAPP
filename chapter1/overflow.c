@@ -5,6 +5,7 @@ int ok(int x,int y){
     int pos_over = x>= 0 && y>=0 && sum < 0;
     return !neg_over && !pos_over;
 }
+
 main(int argc, char const *argv[])
 {
     
