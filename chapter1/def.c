@@ -77,9 +77,22 @@ int main(int argc, char const *argv[])
     // printf("v=%d,uv=%u\n",v,uv);
     
     /* code */
-    int x= -1;
-    int u = -2147483647;
-    printf("x = %u = %d\n",x,x);
-    printf("u = %u = %d\n",u,u);
-    return 0;
+    // int x= -1;
+    // int u = -2147483647;
+    // printf("x = %u = %d\n",x,x);
+    // printf("u = %u = %d\n",u,u);
+    // return 0;
+
+    short sx = -12345;
+    unsigned short usx = sx;
+    int x =sx;
+    unsigned ux = usx;
+    printf("sx = %d:\t",sx);
+    show_bytes((byte_pointer)&sx,sizeof(short));
+    printf("usx = %u:\t",usx);
+    show_bytes((byte_pointer)&usx,sizeof(unsigned short));
+    printf("x = %d:\t",x);
+    show_bytes((byte_pointer)&x,sizeof(int));
+    printf("ux = %u:\t",ux);
+    show_bytes((byte_pointer)&ux,sizeof(unsigned));
 }
