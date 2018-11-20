@@ -2,19 +2,29 @@
 #include <stdio.h>
 typedef unsigned char * byte_pointer;
 // 将数据类型定义为指向'unsigned char'的指针
-void show_bytes(byte_pointer start,size_t len){
+char* show_bytes(byte_pointer start,size_t len){
     size_t i ;
-    
+    char char_list[len]; 
+    char * char_pointer = &char_list;
     for(i=0;i<len;i++){
-        printf("%.2x",start[i]); // 至少2位的16进制输出
+        // printf("%.2x",start[i]); // 至少2位的16进制输出
+        char_list[i] = start[i];
     }
-    printf("\n");
+    return char_pointer;
 }
 void show_int(int x){
     // sizeof 来确定对象使用的字节数目
     show_bytes((byte_pointer)&x,sizeof(int));
 }
+int is_little_endian(byte_pointer start,size_t len){
+    
+    char *a = show_bytes(start,len);
+    int p =* start;
+    
+    
+    return 1;
 
+}
 void show_float(float x){
     show_bytes((byte_pointer)&x,sizeof(float));
 }
@@ -31,6 +41,7 @@ void test_show_bytes(int val){
     show_pointer(pval);
 
 }
+
 int compare(int x,int y){
     return !(x^y);
 }
@@ -47,6 +58,8 @@ float sum_elements(float a[],unsigned length){
 
 
 }
+
+
 int main(int argc, char const *argv[])
 {
     /* code */
@@ -65,9 +78,39 @@ int main(int argc, char const *argv[])
     // show_bytes(valp,3);
     // const char *s = "abcdef";
     // show_bytes((byte_pointer)s,6);
-    // short x = 12345;
-    // short mx = -x;
-    // show_bytes((byte_pointer)&x,sizeof(short));
+    short x = 12345;
+    short subx = x;
+    short mx = -x;
+    // while(subx>16){
+    //     int a  = subx%16;
+    //     printf("%d\n",a);
+    //     subx = (int)subx/16;
+    // }
+    // printf("%d\n",subx);
+    char char_list[sizeof(x)]; 
+    
+    int count = 0;
+    while(1){
+        if(subx>16){
+            
+            char_list[count] = subx%16;
+            // printf("%d\n",char_list[count]);
+                 
+            subx = subx/16;
+            
+            count+=1;
+        }else{
+            printf("%d\n",subx);
+            char_list[count] = subx;
+            count+=1;
+            break;
+        }
+    }
+    for (int i=0;i<sizeof(short);i++){
+        printf("%.2x",char_list[i]);
+    }
+    is_little_endian((byte_pointer)&x,sizeof(short));
+    
     //  show_bytes((byte_pointer)&mx,sizeof(short));
     // short int v = -12345;
     // unsigned short uv =(unsigned short)v;
@@ -108,8 +151,8 @@ int main(int argc, char const *argv[])
     // show_bytes((byte_pointer)&x,sizeof(int));
     // printf("ux = %u:\t",ux);
     // show_bytes((byte_pointer)&ux,sizeof(unsigned));
-    printf("%d\n",111); 
-    float a[] ={};
-    float v = sum_elements(a,0);
-    printf("%f\n",v);
+    // printf("%d\n",111); 
+    // float a[] ={};
+    // float v = sum_elements(a,0);
+    // printf("%f\n",v);
 }
