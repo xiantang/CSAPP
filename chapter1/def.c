@@ -94,13 +94,13 @@ int main(int argc, char const *argv[])
         if(subx>16){
             
             char_list[count] = subx%16;
-            // printf("%d\n",char_list[count]);
+            printf("%.2x\n",char_list[count]);
                  
             subx = subx/16;
             
             count+=1;
         }else{
-            printf("%d\n",subx);
+            
             char_list[count] = subx;
             count+=1;
             break;
