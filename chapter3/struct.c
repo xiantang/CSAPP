@@ -7,8 +7,21 @@ struct rect{
     unsigned long height;
     unsigned color;
 };
-long area(struct rect *rp){
-    return rp->width * rp->height;
+struct rec{
+    int i;
+    int j;
+    int a[2];
+    int *p;
+}
+void area(struct rect rp){
+    
+    rp.width = 100;
+}
+void rotate_left(struct rect *rp){
+    long t = rp->height;
+    rp->height = rp.width;
+    rp->width = t;
+    rp->llx -= t;
 }
 int main(int argc, char const *argv[])
 {
@@ -18,8 +31,8 @@ int main(int argc, char const *argv[])
     // r.width = 10;
     // r.height = 20;
     struct rect r= {0,0,10,20,0xFF00FF};
-    long leng = area(&r);
-    printf("%d\n",leng);
+    area(r);
+    printf("%d\n",r.width);
     /* code */
     return 0;
 }
