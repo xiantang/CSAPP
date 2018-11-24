@@ -11,10 +11,9 @@ int ok(int x,int y){
 // }
 int tmult_ok(int x,int y){
     int p = x*y;
+    
 }
 main(int argc, char const *argv[])
 {
-    
-    
     return 0;
 }
