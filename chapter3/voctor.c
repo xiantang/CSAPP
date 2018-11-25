@@ -32,11 +32,12 @@ vec_ptr new_vec(long len){
 
 int get_vec_element(vec_ptr v, long index, int *dest){
     // 边界检查
+    
     if(index<0 || index >= v->len){
         return 0;
     }
     *dest = v->data[index];
-    printf("%d",*dest);
+    
     return 1;
 }
 
@@ -54,18 +55,38 @@ void combine1(vec_ptr v,int *dest){
         *dest = *dest OP val;        
     }
 }
-    
+void combine2(vec_ptr v,int *dest){
+    long i;
+    long length = vec_length(v);
+    *dest = IDENT;
+    for(i = 0;i<length;i++){
+        int val;
+        get_vec_element(v,i,&val);
+        // printf("%d\n",val)
+        *dest = *dest OP val;
+
+    }
+}
+
+int * get_vet_start(vec_ptr v){
+    return v->data;
+}
 
 int main(int argc, char const *argv[])
 {
     /* code */
     vec_ptr first = new_vec(2);
-    printf("%d\n",1111);
+    // printf("%d\n",1111);
     int  aa[] = {1,2};
-    first->data = aa;
+    first->data = &aa;
     int * comp;
-    // get_vec_element(first,1,comp);
-    // printf("%d\n",*comp);
+    // 初始化指针
+    comp = &aa;
+    get_vec_element(first,1,comp);
+    printf("%d\n",*comp);
     // return 0;
+    // combine2(first,comp);
+    int * qqq= get_vet_start(first);
+    printf("%d\n",*qqq);
 }
 
