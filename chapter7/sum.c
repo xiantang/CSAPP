@@ -1,8 +1,14 @@
-#include <stdio.h> 
-
+#include "csapp.h"
 
-main(int argc, char const *argv[])
+int main(int argc, char const *argv[])
 {
-    /* code */
+    if (fork()==0){
+        printf("a");fflush(stdout);
+    }else{
+        printf("b");fflush(stdout);
+        waitpid(-1,NULL,0);
+    }
+    printf("c");fflush(stdout);
+    exit(0);
     return 0;
 }

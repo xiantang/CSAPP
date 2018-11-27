@@ -13,6 +13,5 @@ long list_len(list_ptr ls){
         len++;
         ls = ls->next
     }
-    return len;
-
+    return len;  
 }
